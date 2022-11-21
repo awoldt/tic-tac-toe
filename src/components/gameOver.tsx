@@ -111,7 +111,7 @@ export default function Gameover({
                             xs={4}
                             className="grid_square"
                             style={{
-                              backgroundColor: "rgb(0, 255, 255)",
+                              backgroundColor: "rgb(0, 255, 255, .5)",
                             }}
                           >
                             {data}
