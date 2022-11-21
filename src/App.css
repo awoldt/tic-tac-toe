@@ -13,7 +13,7 @@ body {
   margin: auto;
 }
 .grid_square {
-  border: 2px solid #00ffff;
+  border: 3px solid #00ffff;
   cursor: pointer;
   width: 50px;
   height: 150px;

@@ -3,8 +3,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import Gameover from "./gameOver";
 
 export default function Grid() {
-  const [firstTurn, setFirstTurn] = useState<"X" | "O">();
-  const [whoseTurn, setWhoseTurn] = useState<"X" | "O">();
+  const [whoseTurn, setWhoseTurn] = useState<"X" | "O">("X"); //X is default
   const [GRID_DATA, SET_GRID_DATA] = useState<(null[] | string[])[]>([
     [null, null, null], //top row
     [null, null, null], //middle row
@@ -118,34 +117,10 @@ export default function Grid() {
     }
   }
 
-  useEffect(() => {
-    //randomly pick who goes first when game first renders
-    const r = Math.floor(Math.random() * 2); //0===x, 1===0
-
-    if (r === 0) {
-      setFirstTurn("X");
-      setWhoseTurn("X");
-    } else {
-      setFirstTurn("O");
-      setWhoseTurn("O");
-    }
-  }, []);
-
   return (
     <>
       {!gameOver && (
         <>
-          <div
-            className="text-center"
-            style={{
-              fontWeight: "bold",
-              fontSize: "50px",
-              marginBottom: "25px",
-            }}
-          >
-            {totalMoves === 0 && <span>{firstTurn} goes first</span>}
-          </div>
-
           <Row style={{ maxWidth: "600px" }} id="grid_row">
             {GRID_DATA.map((row: any[], rowIndex: number) => {
               return (
@@ -192,7 +167,6 @@ export default function Grid() {
             gridData={GRID_DATA}
             winningPattern={winningPattern}
             whoseTurn={whoseTurn!}
-            setFirstTurn={setFirstTurn}
             setWhoseTurn={setWhoseTurn}
             setGridData={SET_GRID_DATA}
             setGameOver={setGameOver}

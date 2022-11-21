@@ -4,7 +4,6 @@ export default function Gameover({
   gridData,
   winningPattern,
   whoseTurn,
-  setFirstTurn,
   setWhoseTurn,
   setGridData,
   setGameOver,
@@ -14,8 +13,7 @@ export default function Gameover({
   gridData: (null[] | string[])[];
   winningPattern: boolean[][] | null;
   whoseTurn: "X" | "O";
-  setFirstTurn: React.Dispatch<React.SetStateAction<"X" | "O" | undefined>>;
-  setWhoseTurn: React.Dispatch<React.SetStateAction<"X" | "O" | undefined>>;
+  setWhoseTurn: React.Dispatch<React.SetStateAction<"X" | "O">>;
   setGridData: React.Dispatch<React.SetStateAction<(null[] | string[])[]>>;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
   setWinningPattern: React.Dispatch<React.SetStateAction<boolean[][] | null>>;
@@ -36,17 +34,15 @@ export default function Gameover({
         </code>
 
         <Button
-          style={{ marginBottom: "25px" }}
+          style={{
+            marginBottom: "25px",
+            backgroundColor: "#282c34",
+            color: "#00ffff",
+            border: "none",
+            fontWeight: 'bold'
+          }}
           onClick={() => {
-            const r = Math.floor(Math.random() * 2); //0===x, 1===0
-
-            if (r === 0) {
-              setFirstTurn("X");
-              setWhoseTurn("X");
-            } else {
-              setFirstTurn("O");
-              setWhoseTurn("O");
-            }
+            setWhoseTurn("X");
             setGridData([
               [null, null, null], //top row
               [null, null, null], //middle row
