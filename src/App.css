@@ -15,7 +15,7 @@ body {
 .grid_square {
   border: 3px solid #00ffff;
   cursor: pointer;
-  width: 50px;
+
   height: 150px;
   font-weight: bold;
   font-size: 60px;

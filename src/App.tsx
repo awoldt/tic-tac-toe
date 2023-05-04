@@ -1,11 +1,10 @@
-import { Container } from "react-bootstrap";
 import "./App.css";
 import Grid from "./components/grid";
 
-function App() {
+export default function App() {
   return (
-    <Container fluid>
-      <Container style={{ paddingTop: "100px" }}>
+    <div className="container-fluid">
+      <div style={{ paddingTop: "100px" }} className="container">
         <Grid />
         <div
           className="text-center"
@@ -30,9 +29,7 @@ function App() {
             Made by awoldt
           </a>
         </div>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
-
-export default App;
